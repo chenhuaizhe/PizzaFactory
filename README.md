@@ -10,6 +10,8 @@
 - 可以修改某个披萨的大小和配料，如果修改过程中披萨已经被生产出来了，则提示不可修改 
 - 可以将某个披萨发送到另一个披萨工厂（两台设备间的通信）
 
+![app](https://github.com/chenhuaizhe/PizzaFactory/blob/master/img/IMG_9419E1467909-1.png)
+
 
 ## 技术说明
 
