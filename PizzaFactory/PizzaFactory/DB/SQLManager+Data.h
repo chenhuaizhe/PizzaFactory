@@ -16,9 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SQLManager (Data)
 
-
-#pragma mark - 俯卧撑数量
-
 //Piza 入表
 - (BOOL)insertPizzaData:(Pizza *)pizza withChef:(Chef *)chef;
 

@@ -8,8 +8,6 @@
 
 #import "SQLManager+Data.h"
 
-
-
 @implementation SQLManager (Data)
 #pragma mark -
 #pragma mark - insert
@@ -64,84 +62,6 @@
 
 }
 
-////某个日期之后的所有的俯卧撑记录
-//- (NSArray <PushUpNumberModel *> *)selectPushUpNumberDataAfterDate:(NSDate *)startDate {
-//    NSMutableArray *mArr = [NSMutableArray arrayWithCapacity:0];
-//    __block NSMutableArray *__safe_array = mArr;
-//    __block NSString *ssql = [NSString stringWithFormat:@"SELECT * FROM pushups_number_data where date >= '%@' ORDER BY date ",[self dateToString:startDate]];
-//    [self.dataDBQueue inDatabase:^(FMDatabase *db) {
-//        FMResultSet *rs = [db executeQuery:ssql];
-//        [db setDateFormat:[self dbDateFormatter:DATE_TYPE_DATESTAMP]];
-//        while (rs.next) {
-//            PushUpNumberModel *sModel = [[PushUpNumberModel alloc] init];
-//            sModel.uid = [rs intForColumn:@"uid"];
-//             sModel.data_from = [rs stringForColumn:@"data_from"];
-//            sModel.date = [rs dateForColumn:@"date"];
-//            sModel.count = [rs intForColumn:@"count"];
-//           sModel.calorie = [rs doubleForColumn:@"calorie"];
-//            [__safe_array addObject:sModel];
-//        }
-//        [rs close];
-//    }];
-//    return mArr;
-//}
-//
-////查找某一天之后所有有数据的日期数组
-//- (NSArray <NSDate *> *)selectAllDateWhichHaveDataAfterDate:(NSDate *)startDate;{
-//    NSMutableArray *mArr = [NSMutableArray arrayWithCapacity:0];
-//    __block NSMutableArray *__safe_array = mArr;
-//    __block NSString *ssql = [NSString stringWithFormat:@"SELECT date FROM pushups_number_data where date >= '%@' ORDER BY date",[self dateToString:startDate]];
-//    [self.dataDBQueue inDatabase:^(FMDatabase *db) {
-//        FMResultSet *rs = [db executeQuery:ssql];
-//        [db setDateFormat:[self dbDateFormatter:DATE_TYPE_DATESTAMP]];
-//        while (rs.next) {
-//             NSDate *date = [rs dateForColumn:@"date"];
-//            NSDate *dayDate = [NSDate dateWithYearMonthAndDay:date.year andMonth:date.month andDay:date.day];
-//            if (![__safe_array containsObject:dayDate]) {
-//                [__safe_array addObject:dayDate];
-//            }
-//
-//        }
-//        [rs close];
-//    }];
-//    return mArr;
-//
-//}
-//
-////查找某一天的俯卧撑总个数
-//- (NSInteger)selectAllPushUpCountWithDate:(NSDate *)dayDate; {
-//    NSDate *startDate = [dayDate dateAtStartOfDay];
-//    NSDate *endDate = [dayDate dateByAddingDays:1];
-//    endDate = [endDate dateAtStartOfDay];
-//    __block NSString *ssql = [NSString stringWithFormat:@"SELECT SUM(count) as allcount FROM pushups_number_data where date >= '%@' and date < '%@'",[self dateToString:startDate],[self dateToString:endDate]];
-//    __block NSInteger count = 0;
-//    [self.dataDBQueue inDatabase:^(FMDatabase *db) {
-//        FMResultSet *rs = [db executeQuery:ssql];
-//        [db setDateFormat:[self dbDateFormatter:DATE_TYPE_DATESTAMP]];
-//        while (rs.next) {
-//             count = [rs intForColumn:@"allcount"];
-//        }
-//        [rs close];
-//    }];
-//    return count;
-//}
-//
-////查找某一天的俯卧撑总卡路里
-//- (CGFloat)selectAllPushUpCalorieWithDate:(NSDate *)dayDate; {
-//    NSDate *startDate = [dayDate dateAtStartOfDay];
-//      NSDate *endDate = [dayDate dateByAddingDays:1];
-//      endDate = [endDate dateAtStartOfDay];
-//      __block NSString *ssql = [NSString stringWithFormat:@"SELECT SUM(calorie) as allcount FROM pushups_number_data where date >= '%@' and date < '%@'",[self dateToString:startDate],[self dateToString:endDate]];
-//          __block CGFloat count = 0;
-//      [self.dataDBQueue inDatabase:^(FMDatabase *db) {
-//          FMResultSet *rs = [db executeQuery:ssql];
-//          [db setDateFormat:[self dbDateFormatter:DATE_TYPE_DATESTAMP]];
-//          while (rs.next) {
-//               count = [rs doubleForColumn:@"allcount"];
-//          }
-//          [rs close];
-//      }];
-//      return count;
-//}
+
 
 @end
